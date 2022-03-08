@@ -1,4 +1,4 @@
-from _tkinter import CASCADE
+from tkinter import CASCADE
 from sqlalchemy.sql.expression  import  func
 from sqlite3 import Timestamp
 from .database import Base
