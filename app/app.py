@@ -27,6 +27,6 @@ app.include_router(vote.router)
 @app.get("/")
 def root(db:Session=Depends(get_db)):
     if db:
-        return{"message":"Welcome to python and Connection established"}
+        return{"message":"Welcome to python and Connection established with github action CI/CD pipeline"}
    
     return {"message":"Welcome to python"}
