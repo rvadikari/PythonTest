@@ -18,7 +18,7 @@ async def get_posts(db: Session = Depends(get_db), limit: int = 10, skip: int = 
     my_posts = db.query(models.Post).order_by(models.Post.id).filter(
         models.Post.title.contains(search)).limit(limit).offset(skip).all()
     postVotes = db.query(models.Post, func.count(models.Vote.post_id).label("votes")).join(
-        models.Vote, models.Post.id == models.Vote.post_id).group_by(models.Post.id,models.Post.user_id,models.Post.title, models.Post.content, models.Post.created_at, models.Post.published)
+        models.Vote, models.Post.id == models.Vote.post_id,isouter=True).group_by(models.Post.id,models.Post.user_id,models.Post.title, models.Post.content, models.Post.created_at, models.Post.published)
     print(postVotes)
     return postVotes.all()
 
