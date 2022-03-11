@@ -3,10 +3,10 @@ from app import schemas
 import pytest
 
 
-def test_root(client):
-    res = client.get("/")
-    assert res.status_code == 200
-    assert res.json().get("message") == "Welcome to python and Connection established"
+# def test_root(client):
+#     res = client.get("/")
+#     assert res.status_code == 200
+#     assert res.json().get("message") == "Welcome to python and Connection established"
 
 
 def test_create_user(client):
